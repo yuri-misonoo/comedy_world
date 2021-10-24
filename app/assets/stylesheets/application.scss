@@ -17,14 +17,32 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-header {
-  background-color: #ccff99;
+$main-color: #ccff99;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
-ul {
+header {
+  background-color: $main-color;
+}
+
+.list {
   list-style: none;
 }
 
 li {
   margin-left: 10px;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
