@@ -46,5 +46,6 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  # attachment :profile_image
+  attachment :profile_image
+  has_many :posts, dependent: :destroy
 end
