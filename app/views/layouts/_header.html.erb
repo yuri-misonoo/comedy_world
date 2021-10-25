@@ -9,14 +9,32 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav list ml-auto">
           <li class="nav-item">
-            <%= link_to "Home", '#', class: "nav-link pl-3" %>
+            <%= link_to "ホーム", root_path, class: "fas fa-home nav-link pl-3" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "SignUp", signup_path, class: "nav-link pl-3" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "SignIn", signin_path, class: "nav-link pl-3" %>
-          </li>
+          <% if signed_in? %>
+            <li class="nav-item">
+              <%= link_to "投稿する", new_post_path, class: 'fas fa-pen nav-link pl-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user), class: 'nav-link pl-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ユーザー", users_path, class: 'fas fa-users nav-link pl-3' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "タイムライン", posts_path, class: 'nav-link pl-3' %>
+            </li>
+            <li>
+              <%= link_to "サインアウト", signout_path, class: 'fas fa-sign-aut-alt' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "サインアップ", signup_path, class: "nav-link pl-3" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "サインイン", signin_path, class: "nav-link pl-3" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

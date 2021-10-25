@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # オブジェクトを作成。migrationでt.string :remember_tokenとするのとほぼ同義。型は動的に決まる。
+  attr_accessor :remember_token
+
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -7,6 +10,28 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  
+
+  # 新しい記憶トークンを作成
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # 渡された文字列のハッシュ値を返す
+  # cost（コストパラメータ）→ハッシュを算出するための計算コストを指定
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                BCrypt::Engine.cost
+    # パスワードの作成
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  # 永続セッションのためにユーザーをデータベースに記憶する
+  def remember
+    # 記憶トークンを作成
+    self.remember_token = User.new_token
+    # 記憶ダイジェストの更新
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
   # attachment :profile_image
 end

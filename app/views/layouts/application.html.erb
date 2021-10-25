@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <!-- FontAwesomeの読み込み -->
+    <script src="https://kit.fontawesome.com/*******.js" crossorigin="anonymous"></script>
     <title>Comedy World</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +14,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-    
+
     <div class="container">
       <%= render 'layouts/flash' %>
     </div>
-    
+
     <div class="container">
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
