@@ -32,6 +32,17 @@ class User < ApplicationRecord
     # 記憶ダイジェストの更新
     update_attribute(:remember_digest, User.digest(remember_token))
   end
+  
+  # 渡されたトークンがダイジェストと一致したらtrueを返す
+  # 引数のremember_tokenは1行目のものとは別物
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+  
+  # ユーザーのサインイン情報を破棄する
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 
   # attachment :profile_image
 end
