@@ -5,7 +5,9 @@
     大好きな芸人について語って仲間を増やそう！！
   </p>
   <div class="text-center">
-    <%= link_to "Sign Up", "#", class: 'btn btn-info' %>
+    <% unless signed_in? %>
+      <%= link_to "Sign Up", signup_path, class: 'btn btn-info' %>
+    <% end %>
   </div>
 </div>
 

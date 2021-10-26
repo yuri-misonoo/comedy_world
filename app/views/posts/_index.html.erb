@@ -1,7 +1,7 @@
 <% posts.each do |post| %>
   <div class="border-bottom mt-3">
     <div class="d-flex">
-      <% if post.user.id != current_user.id %>
+      <%# if post.user.id != current_user.id %>
         <%= link_to user_path(post.user), class: 'text-secondary' do %>
           <%= attachment_image_tag post.user, :profile_image, fill, 50, 50, format: 'jpg',
                                                 fallback: "no_image.jpg", size: "50x50", class: "rounded-pill" %>

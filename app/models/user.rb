@@ -9,7 +9,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # 新しい記憶トークンを作成
   def self.new_token
@@ -32,7 +32,7 @@ class User < ApplicationRecord
     # 記憶ダイジェストの更新
     update_attribute(:remember_digest, User.digest(remember_token))
   end
-  
+
   # 渡されたトークンがダイジェストと一致したらtrueを返す
   # 引数のremember_tokenは1行目のものとは別物
   def authenticated?(remember_token)
@@ -40,7 +40,7 @@ class User < ApplicationRecord
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
-  
+
   # ユーザーのサインイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)

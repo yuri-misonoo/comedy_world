@@ -20,6 +20,11 @@
 @import 'font-awesome';
 
 $main-color: #ccff99;
+$font-color: #444444;
+
+body {
+  color: $font-color;
+}
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
