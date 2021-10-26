@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :sign_in_user, only: [:edit, :update]
+  before_action :sign_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
   def new
@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @users = User.all
+    @user = current_user
   end
 
   def show
@@ -38,7 +43,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction)
     end
-    
+
     # サインイン済みユーザーかどうか確認。サインイン前のurl直打ち禁止。
     def sign_in_user
       unless signed_in?
@@ -47,7 +52,7 @@ class UsersController < ApplicationController
         redirect_to signin_path
       end
     end
-    
+
     # 正しいユーザーかどうか確認。他ユーザーの編集、url直打ち禁止。
     def correct_user
       @user = User.find(params[:id])
