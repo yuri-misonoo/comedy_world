@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_121237) do
+ActiveRecord::Schema.define(version: 2021_10_27_050338) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_121237) do
     t.string "profile_image_id"
     t.string "remember_digest"
     t.string "introduction"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

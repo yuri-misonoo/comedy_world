@@ -1,2 +1,16 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<div class="row">
+  <h2 class="text-center">パスワード再設定</h2>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(url: password_resets_path, scope: :password_reset, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス", class: 'form-label' %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="action text-center">
+        <%= f.submit "送信", class: 'btn btn-info btn-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>
