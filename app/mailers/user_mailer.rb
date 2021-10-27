@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
   #
   def password_reset(user)
     @user = user
-    mail to: user.email, subject: "パスワード再設定メール"
+    mail to: user.email, subject: "Password Reset"
   end
 end
