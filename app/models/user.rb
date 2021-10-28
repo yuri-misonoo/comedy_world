@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   # オブジェクトを作成。migrationでt.string :remember_tokenとするのとほぼ同義。型は動的に決まる。
   attr_accessor :remember_token, :reset_token
-
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -34,9 +33,9 @@ class User < ApplicationRecord
   end
 
   # 渡されたトークンがダイジェストと一致したらtrueを返す
-  def authenticated?(attridute, token)
-    digest = self.send("#{attridute}_digest")
-    return false if remember_digest.nil?
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
 
