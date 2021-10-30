@@ -36,6 +36,7 @@ body {
   box-sizing:         border-box;
 }
 
+/* ヘッダー */
 header {
   background-color: $main-color;
 }
@@ -57,3 +58,23 @@ li {
   margin-top: 45px;
   @include box_sizing;
 }
+
+/* 画像 */
+.img {
+  border-radius: 50%;
+}
+
+/* ユーザー詳細 */
+.left {
+  margin-top: 10%;
+}
+
+.intro {
+  margin-top: 5%;
+}
+
+.name {
+  font-size: 20px;
+  margin-left: 5%;
+}
+

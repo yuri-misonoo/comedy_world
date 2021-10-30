@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction, :profile_image)
     end
 
     # サインイン済みユーザーかどうか確認。サインイン前のurl直打ち禁止。
