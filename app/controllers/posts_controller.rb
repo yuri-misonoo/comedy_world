@@ -23,11 +23,15 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    @post = Post.find(params[:id])
+    @user = current_user
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    flash[:success] = "投稿内容を更新しました！"
+    redirect_to post_path(@post)
   end
 
   def destroy

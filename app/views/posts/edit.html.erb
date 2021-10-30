@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/left', user: @user %>
+  </div>
+
+  <div class="col-md-8 col-md-offset-1">
+    <h3 class="text-center">投稿編集</h3>
+
+    <%= form_with model: @post, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :body, '投稿内容', class: 'form-label' %>
+        <%= f.text_area :body, autofocus: true, rows: 5, class: 'form-control' %>
+      </div>
+
+      <div class="action text-center">
+        <%= f.submit '更新', class: 'btn btn-success mt-3' %>
+      </div>
+    <% end %>
+  </div>
+</div>

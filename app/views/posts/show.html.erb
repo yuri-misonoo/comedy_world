@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/left', user: @user %>
+  </div>
+
+  <div class="col-md-8 col-md-offset-1">
+    <h3 class="text-center">投稿詳細</h3>
+    <div class="d-flex">
+      <%= link_to user_path(@user), class: 'text-secondary' do %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpg',
+                                              fallback: "no_image.jpg", size: "50x50", class: "img" %>
+      <% end %>
+
+      <strong class="ml-4"><%= @user.name %></strong>
+
+      <span class="ml-4"><%= @post.post_time %></span>
+    </div>
+
+    <div><%= link_to @post.body, post_path(@post), class: 'link-color' %></div><br>
+
+    <% if @user.id == current_user.id %>
+      <div class="text-right mb-4">
+        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary' %>
+        <%= link_to '削除', post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: " btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
