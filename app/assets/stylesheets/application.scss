@@ -22,6 +22,12 @@
 $main-color: #ccff99;
 $font-color: #444444;
 
+.title{
+  font-size: 1.5em;
+  color: $font-color;
+  font-weight: bold;
+}
+
 body {
   color: $font-color;
 }
