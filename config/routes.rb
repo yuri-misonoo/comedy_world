@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   delete '/signout' => 'sessions#destroy'
   resources :users
-  resources :posts
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
