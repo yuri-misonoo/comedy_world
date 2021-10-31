@@ -1,0 +1,11 @@
+<%= form_with(model:[post, post_comment], local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :comment, 'コメント', class: 'form-label' %>
+    <%= f.text_area :comment, rows: '3', placeholder: "コメントを記入", class: 'form-control' %>
+  </div>
+
+  <div class="action text-center">
+    <%= f.submit "送信", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

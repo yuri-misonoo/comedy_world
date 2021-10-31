@@ -17,6 +17,10 @@
       <%= render 'favorites/favorite', post: post %>
     </div>
 
+    <div>
+      <%= link_to post.post_comments.count, post_path(post), class: 'far fa-comment' %>
+    </div>
+
     <% if post.user.id == current_user.id %>
       <div class="text-right mb-4">
         <%= link_to '編集', edit_post_path(post), class: 'btn btn-primary' %>
