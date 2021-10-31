@@ -1,0 +1,9 @@
+<!-- userがnilの場合はcurrent_userを代入する -->
+<% user ||= current_user %>
+<div>
+  <strong><%= link_to user.following.count, following_user_path(user), class: 'link-color' %></strong>
+  following
+
+  <strong><%= link_to user.followers.count, followers_user_path(user), class: 'link-color' %></strong>
+  followers
+</div>

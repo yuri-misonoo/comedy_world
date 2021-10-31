@@ -10,9 +10,16 @@
   <% end %>
 </div>
 
-
 <p class="intro"><%= user.introduction %></p><br>
 <% if current_user?(user) %>
   <%= link_to ' ', edit_user_path(user), class: 'fas fa-user-edit btn btn-info btn-block' %>
 <% end %>
+</div>
+
+<section>
+  <%= render 'shared/stats', user: user %>
+</section>
+
+<div>
+  <%= render 'users/follow_form', user: user if signed_in? %>
 </div>
