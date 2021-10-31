@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy,
+                                        :following, :followers]
   before_action :correct_user, only: [:edit, :update]
 
   def new
@@ -37,6 +38,23 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+  end
+  
+  def following
+    @title = "フォロー中"
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+  
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
   end
 
   private
