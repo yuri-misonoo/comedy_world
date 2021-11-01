@@ -13,4 +13,10 @@ class Post < ApplicationRecord
   def post_time
     created_at.strftime("%Y/%m/%d")
   end
+
+  # 投稿検索
+  def self.search(body)
+    return all unless body
+    where(['body LIKE ?', "%#{body}%"])
+  end
 end

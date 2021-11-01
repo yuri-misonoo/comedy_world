@@ -84,5 +84,11 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  # ユーザー検索機能
+  def self.search(name)
+    return all unless name
+    where(['name LIKE ?', "%#{name}%"])
+  end
 
 end

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.search(params[:search])
     @user = current_user
   end
 
@@ -39,17 +39,17 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
   end
-  
+
   def following
     @title = "フォロー中"
     @user = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
-  
+
   def followers
     @title = "フォロワー"
     @user = User.find(params[:id])

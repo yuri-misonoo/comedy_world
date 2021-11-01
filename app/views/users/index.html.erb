@@ -5,6 +5,14 @@
 
   <div class="col-md-8 col-md-offset-1">
     <h3 class="text-center">ユーザー一覧</h3>
+    <div class="search-form">
+      <%= form_with url: users_path, method: :get, local: true do |f| %>
+        <%= f.text_field :search %>
+        <%= f.submit '検索' %>
+      <% end %>
+    </div>
+
     <%= render 'users_index', users: @users %>
+      
   </div>
 </div>
