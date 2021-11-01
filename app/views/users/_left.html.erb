@@ -16,10 +16,10 @@
 <% end %>
 </div>
 
-<section>
+<section class="stats">
   <%= render 'shared/stats', user: user %>
 </section>
 
-<div>
+<div class="follow-form">
   <%= render 'users/follow_form', user: user if signed_in? %>
 </div>
