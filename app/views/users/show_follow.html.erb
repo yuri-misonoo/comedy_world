@@ -2,9 +2,9 @@
   <div class="col-md-3">
     <%= render 'left', user: @user %>
   </div>
-  
+
   <div class="col-md-8 col-md-offset-1">
-    <h3><%= @title %></h3>
+    <h3 class="text-center"><%= @title %></h3>
     <% if @users.any? %>
       <%= render 'users_index', users: @users %>
     <% end %>
