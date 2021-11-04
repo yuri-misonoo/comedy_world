@@ -1,0 +1,13 @@
+<div class="row text-center">
+  <h2>退会画面</h2>
+  <p>
+    退会手続きをされますと、全てのデータが削除されサービスがご利用いただけなくなります。<br>
+    再度ご利用をいただくには、新規登録のお手続きが必要になります。<br>
+    本当に退会してよろしいですか？
+  </p>
+
+  <div class="text-center">
+    <%= link_to '退会する', user_path(@user), method: :delete, 'data-confirm' => '退会してもよろしいですか？' ,class: "btn btn-info" %>
+    <%= link_to '退会しない', user_path(@user), class: "btn btn-primary" %>
+  </div>
+</div>

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   delete '/signout' => 'sessions#destroy'
+  get 'users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
   resources :users do
     member do
-      get :following, :followers 
+      get :following, :followers
     end
   end
   resources :password_resets, only: [:new, :create, :edit, :update]

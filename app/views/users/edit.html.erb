@@ -40,8 +40,12 @@
       </div>
     <% end %>
 
-    <div class="text-center pt-3">
-      <%= link_to "戻る", user_path(@user) %>
+    <div class="text-center back">
+      <%= link_to "戻る", user_path(@user), class: 'btn btn-success btn-sm' %>
+    </div>
+
+    <div>
+      退会をご希望の方は<%= link_to "こちら", withdrawal_path(current_user) %>
     </div>
   </div>
 </div>

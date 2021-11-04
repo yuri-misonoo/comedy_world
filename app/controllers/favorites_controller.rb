@@ -13,4 +13,12 @@ class FavoritesController < ApplicationController
     @favorite.destroy
   end
 
+  def signed_in_user
+    unless signed_in?
+      store_location
+      flash[:danger] = "ログインしてください"
+      redirect_to signin_path
+    end
+  end
+
 end

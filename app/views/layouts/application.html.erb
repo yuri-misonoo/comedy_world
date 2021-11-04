@@ -19,7 +19,13 @@
 
     <div class="container">
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <%#= debug(params) if Rails.env.development? %>
     </div>
+
+    <footer>
+      <div class="text-center">
+        <p>© 2021 Comedy World</p>
+      </div>
+    </footer>
   </body>
 </html>

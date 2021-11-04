@@ -84,6 +84,11 @@ li {
   margin-left: 5%;
 }
 
+/* ユーザー編集 */
+.back {
+  margin-top: 5%;
+}
+
 /* タイムライン */
 .time-line {
   margin-top: 5%;
@@ -119,4 +124,11 @@ li {
 .follower {
   font-size: 15px;
   padding: 3%;
+}
+
+/* フッター */
+footer {
+  margin-top: 10%;
+  padding-top: 2%;
+  border-top: solid 2px #CCCCCC;
 }
