@@ -1,24 +1,28 @@
-# README
+# Comedy World
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+お笑い好き専用のSNSサイト。お笑い芸人、バラエティ、大喜利、だじゃれ・・・とにかく笑いが好きな人が、自分の大好きなネタや芸人について語るも良し、自分で考えた大喜利をつぶやくも良し！  
+サイトを見てみんなが楽しい気持ちになれるサイト。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+集まれ！お笑い好き！
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+コロナ禍でお家時間が増え、お笑いにはまったためその気持ちを共有したいと思ったため。
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+・お笑い好きな人  
+・最近笑ってないなという人
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
 
-* Deployment instructions
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
